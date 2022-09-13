@@ -1,0 +1,14 @@
+Analyzing vscodesetup...                                        
+
+   info - Avoid relative imports for files in `lib/` - lib\src\app.dart:5:8 - always_use_package_imports
+   info - Avoid relative imports for files in `lib/` - lib\src\app.dart:6:8 - always_use_package_imports
+   info - Sort directive sections alphabetically - lib\src\app.dart:7:1 - directives_ordering
+   info - Avoid relative imports for files in `lib/` - lib\src\app.dart:7:8 - always_use_package_imports
+   info - Avoid relative imports for files in `lib/` - lib\src\app.dart:8:8 - always_use_package_imports
+   info - Avoid relative imports for files in `lib/` - lib\src\features\sample\sample_item_list_view.dart:3:8 - always_use_package_imports
+   info - Sort directive sections alphabetically - lib\src\features\sample\sample_item_list_view.dart:4:1 - directives_ordering
+   info - Avoid relative imports for files in `lib/` - lib\src\features\sample\sample_item_list_view.dart:4:8 - always_use_package_imports
+   info - Avoid relative imports for files in `lib/` - lib\src\features\sample\sample_item_list_view.dart:5:8 - always_use_package_imports
+   info - Missing a required trailing comma - lib\src\features\sample\sample_item_list_view.dart:66:11 - require_trailing_commas
+   info - Sort pub dependencies - pubspec.yaml:24:3 - sort_pub_dependencies
+
