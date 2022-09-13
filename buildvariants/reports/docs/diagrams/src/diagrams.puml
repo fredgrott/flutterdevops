@@ -1,0 +1,84 @@
+@startuml
+set namespaceSeparator ::
+
+class "buildvariants::src::app.dart::MyApp" {
+  +SettingsController settingsController
+  +Widget build()
+}
+
+"buildvariants::src::app.dart::MyApp" o-- "buildvariants::src::controllers::settings_controller.dart::SettingsController"
+"flutter::src::widgets::framework.dart::StatelessWidget" <|-- "buildvariants::src::app.dart::MyApp"
+
+class "buildvariants::src::controllers::settings_controller.dart::SettingsController" {
+  -SettingsService _settingsService
+  -ThemeMode _themeMode
+  +ThemeMode themeMode
+  +Future<void> loadSettings()
+  +Future<void> updateThemeMode()
+}
+
+"buildvariants::src::controllers::settings_controller.dart::SettingsController" o-- "buildvariants::src::services::settings_service.dart::SettingsService"
+"buildvariants::src::controllers::settings_controller.dart::SettingsController" o-- "flutter::src::material::app.dart::ThemeMode"
+"flutter::src::foundation::change_notifier.dart::ChangeNotifier" <|-- "buildvariants::src::controllers::settings_controller.dart::SettingsController"
+
+class "buildvariants::src::features::sample::sample_item_details_view.dart::SampleItemDetailsView" {
+  {static} +String routeName
+  +Widget build()
+}
+
+"flutter::src::widgets::framework.dart::StatelessWidget" <|-- "buildvariants::src::features::sample::sample_item_details_view.dart::SampleItemDetailsView"
+
+class "buildvariants::src::features::sample::sample_item_list_view.dart::SampleItemListView" {
+  {static} +String routeName
+  +List<SampleItem> items
+  +Widget build()
+}
+
+"flutter::src::widgets::framework.dart::StatelessWidget" <|-- "buildvariants::src::features::sample::sample_item_list_view.dart::SampleItemListView"
+
+class "buildvariants::src::features::settings::settings_view.dart::SettingsView" {
+  {static} +String routeName
+  +SettingsController controller
+  +Widget build()
+}
+
+"buildvariants::src::features::settings::settings_view.dart::SettingsView" o-- "buildvariants::src::controllers::settings_controller.dart::SettingsController"
+"flutter::src::widgets::framework.dart::StatelessWidget" <|-- "buildvariants::src::features::settings::settings_view.dart::SettingsView"
+
+class "buildvariants::src::internals::build_variant_vars.dart::Constants" {
+  -Map<String, dynamic> _config
+  +dynamic whereAmI
+  +void setEnvironment()
+}
+
+class "buildvariants::src::internals::build_variant_vars.dart::_Config" {
+  {static} +Map<String, dynamic> debugConstants
+  {static} +Map<String, dynamic> prodConstants
+  {static} +Map<String, dynamic> qaConstants
+  {static} +Map<String, dynamic> previewConstants
+  {static} +String whereAmI
+}
+
+class "buildvariants::src::internals::build_variant_vars.dart::Environment" {
+  +int index
+  {static} +List<Environment> values
+  {static} +Environment debug
+  {static} +Environment stagging
+  {static} +Environment prod
+  {static} +Environment preview
+}
+
+"buildvariants::src::internals::build_variant_vars.dart::Environment" o-- "buildvariants::src::internals::build_variant_vars.dart::Environment"
+"dart::core::Enum" <|-- "buildvariants::src::internals::build_variant_vars.dart::Environment"
+
+class "buildvariants::src::models::sample_item.dart::SampleItem" {
+  +int id
+}
+
+class "buildvariants::src::services::settings_service.dart::SettingsService" {
+  +Future<ThemeMode> themeMode()
+  +Future<void> updateThemeMode()
+}
+
+
+@enduml
