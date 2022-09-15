@@ -1,4 +1,0 @@
-Analyzing buildvariants...                                      
-
-   info - Sort pub dependencies - pubspec.yaml:25:3 - sort_pub_dependencies
-
