@@ -81,6 +81,9 @@
     "ms-vsliveshare.vsliveshare",
     "lostintangent.vsls-whiteboard",
     "gaetschwartz.build-runner",
-    "mark-wiemer.vscode-autohotkey-plus-plus"
+    "mark-wiemer.vscode-autohotkey-plus-plus",
+    "flutterando.flutter-coverage",
+    "blaugold.melos-code",
+    "FelixAngelov.mason"
   ]
 }

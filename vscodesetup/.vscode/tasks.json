@@ -7,6 +7,13 @@
   //
   //       Also, note that some of this stuff is platformOS specifc. Take it and modify according 
   //       to your platformOS shell specifics.
+  //
+  //       DevOPS requirements:
+  //            junit2html python script installed and env propety path set
+  //            lcov.imfo genhtml script installed, if on windows then use chocolatey install
+  //            dartcdoemetrics, junitreport flutter bin installed
+  //            reports folder with docs, metrics, coverage, and test folders
+  //            reports folder docs/src and docs/out created
 	"version": "2.0.0",
 	"tasks": [
      
@@ -125,7 +132,8 @@
       "args": [
         "analyze",
         ">",
-        ".\\reports\\analyzer_report.txt"
+        ".\\reports\\analyzer_report.txt",
+        "--no-fatal-infos --no-fatal-warnings"
       ],
       "problemMatcher": [],
       "label": "flutter: analyze report gen"
@@ -135,11 +143,29 @@
 
      {
        "type": "shell",
-       "command": "perl",
-       "args": [
-         "C://ProgramData//chocolatey//lib//lcov//tools//bin//genhtml reports//coverage//lcov.info",
-"-o reports//coverage//html",
-       ],
+       "windows": {
+        "command": "perl","args": [
+          "C://ProgramData//chocolatey//lib//lcov//tools//bin//genhtml reports//coverage//lcov.info",
+          "-o reports//coverage//html",
+        ],
+       },
+       "linux": {
+
+        "command": "perl",
+        "args": [
+          "genthml reports//coverage//lcov.info",
+          "-o reports//coverage//html",
+        ]
+
+       },
+       "osx": {
+        "command": "perl",
+        "args": [
+          "genhtml reports//coverage///lcov.info",
+          "-o reports//coverage/html",
+        ]
+
+       },
        "dependsOn": [
          "flutter: test coverage lcov.info gen"
        ],
@@ -150,6 +176,46 @@
 
      
 
+
+
+     // per https://pub.dev/packages/junitreport
+     {
+      "type": "flutter",
+      "command": "flutter",
+      "args": [
+        "test",
+        "--machine",
+        "|",
+        "tojunit",
+        "--output",
+        "reports\\test\\unittest.xml"
+      ],
+      "problemMatcher":[],
+      "label": "flutter: unit test xml"
+     },
+
+     // this is the only place where we break best practices of defining each plat shell as 
+     // there are no plat differences for running the pythong junit2html script
+     {
+      "type": "shell",
+      "command": "junit2html",
+      "args": [
+        "reports\\test\\unittest.xml",
+        "reports\\test\\unittest.html"
+      ],
+      "dependsOn": [
+        "flutter: unit test xml"
+      ],
+      "problemMatcher":[],
+      "label": "Flutter: unit test html"
+
+     },
+
+
+
+
+
+     
 
 
 

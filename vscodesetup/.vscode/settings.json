@@ -14,5 +14,9 @@
     "plantuml",
     "pubviz",
     "vscode"
-  ]
+  ],
+  "Insider.links": {
+  
+    "Flutter Docs": "https://flutter.dev/docs"
+  }
 }

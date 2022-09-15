@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite errors="0" failures="0" tests="1" skipped="0" name="D:.fredgrttsstuff.GithubProjects.flutterdevops.vscodesetup.test.unit" timestamp="2022-09-15T12:31:05">
+    <properties>
+      <property name="platform" value="vm"/>
+    </properties>
+    <testcase classname="D:.fredgrttsstuff.GithubProjects.flutterdevops.vscodesetup.test.unit" name="Plus Operator should add two numbers together" time="0.038"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" tests="1" skipped="0" name="D:.fredgrttsstuff.GithubProjects.flutterdevops.vscodesetup.test.widget" timestamp="2022-09-15T12:31:05">
+    <properties>
+      <property name="platform" value="vm"/>
+    </properties>
+    <testcase classname="D:.fredgrttsstuff.GithubProjects.flutterdevops.vscodesetup.test.widget" name="MyWidget should display a string of text" time="2.213"/>
+  </testsuite>
+</testsuites>

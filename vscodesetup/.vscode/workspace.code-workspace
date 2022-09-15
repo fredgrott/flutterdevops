@@ -1,6 +1,8 @@
 {
 	"folders": [
-		{
+		{ 
+			// in multi-workspace setups this would specify the different
+			// workspace folders via multiple path blocks
 			"path": ".."
 		}
 	],
@@ -37,6 +39,29 @@
 		"dart.flutterScreenshotPath": null,
 		"dart.devToolsTheme": "dark",
 		"dart.flutterCreateOrganization": "io.github.fredgrott",
+		/// foer flutter coverage plugin, this should match 
+		// the args in my task test coverage command
+		"dart.flutterTestAdditionalArgs": [
+			"--coverage",
+			"--reporter=expanded",
+			"--coverage-path=reports/coverage/lcov.info"
+		],
+
+    // per https://marketplace.visualstudio.com/items?itemName=Flutterando.flutter-coverage
+		"flutter-coverage.coverageFileNames": [
+			"lcov.info",
+			"cov.xml",
+			"coverage.xml",
+			"jacoco.xml"
+		],
+		"flutter-coverage.coverageFilePaths": [
+			"reports/coverage"
+		],
+		"flutter-coverage.lowCoverageThreshold": 50,
+		"flutter-coverage.sufficientCoverageThreshold": 70,
+
+
+
 
     // per https://marketplace.visualstudio.com/items?itemName=jebbs.plantuml
 		"plantuml.diagramsRoot": "reports/docs/diagrams/src",
@@ -261,10 +286,22 @@
            ],
            "sortOtherMethods": false,
 		   },
-			 "Insider.links": {
+		// per https://marketplace.visualstudio.com/items?itemName=rexthedev.flutter-insider
+		"Insider.links": {
     
         "Flutter Docs": "https://flutter.dev/docs",
-				"Dart Docs": "https://api.dart.dev"
+				"Dart Docs": "https://api.dart.dev",
+				"Flex Color Scheme": "https://docs.flexcolorscheme.com/",
+				"Proovider": "https://pub.dev/documentation/provider/latest/",
+				"Flutter Platform Widgets": "https://pub.dev/documentation/flutter_platform_widgets/latest/",
+				"Bloc": "https://bloclibrary.dev/#/",
+				"Riverpod": "https://riverpod.dev/",
+				"Equatable": "https://pub.dev/documentation/equatable/latest/",
+				"Golden Toolkit": "https://pub.dev/documentation/golden_toolkit/latest/",
+				"Page Object": "https://pub.dev/documentation/page_object/latest/",
+				"Given When Them": "https://pub.dev/documentation/given_when_then/latest/",
+				"Device Preview": "https://pub.dev/documentation/device_preview/latest/",
+
     },
 		// per https://marketplace.visualstudio.com/items?itemName=usernamehw.errorlens
 		// also have to configure workbench.colorCustomizations
@@ -284,6 +321,15 @@
 				"HINT"
 			],
 
+		},
+    // per https://gist.github.com/gaetschwartz/b5fed3ebf7594c54472c6ecf11eed2e1
+		"explorer.fileNesting.enabled": true,
+		"explorer.fileNesting.expand": false,
+		"explorer.fileNesting.patterns": {
+			"pubspec.yaml": ".flutter-plugins, .packages, .dart_tool, .flutter-plugins-dependencies, .metadata, .packages, pubspec.lock, build.yaml, analysis_options.yaml, pubspec_overrides.yaml, all_lint_rules.yaml",
+			".gitignore": ".gitattributes, .gitmodules, .gitmessage, .mailmap, .git-blame*",
+			"readme.": "authors, backers.md, changelog, citation*, code_of_conduct.md, codeowners, contributing.md, contributors, copying, credits, governance.md, history.md, license*, maintainers, readme*, security.md, sponsors.md",
+			"*.dart": "$(capture).g.dart, $(capture).freezed.dart",
 		},
 		
 
