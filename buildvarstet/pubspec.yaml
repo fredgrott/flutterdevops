@@ -34,6 +34,10 @@ dependencies:
   screenshot_modes: ^1.0.1
   # device frame 
   device_preview: ^1.1.0
+  # rive animation
+  rive: ^0.9.1
+  # lifecycle events
+  lifecycle: ^0.6.0
 
 
 dev_dependencies:
@@ -57,3 +61,4 @@ flutter:
     # Add assets from the images directory to the application.
     - assets/images/
     - assets/google_fonts/
+    - assets/rive/
