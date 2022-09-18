@@ -16,10 +16,10 @@ import 'package:buildvarstet/src/services/settings_service.dart';
 import 'package:catcher/catcher.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:rive/rive.dart';
 
 // Required for build variants functionality.
 void mainDelegate() => main();
-
 
 //
 // ignore: long-method
@@ -37,6 +37,9 @@ void main() async {
             AssetImage(asset),
             context,
           );
+        }
+        for (final riveAsset in riveList) {
+          RiveFile.asset(riveAsset);
         }
       }
     },

@@ -1,4 +1,7 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
+import 'package:lifecycle/lifecycle.dart';
 
 /// Displays detailed information about a SampleItem.
 class SampleItemDetailsView extends StatelessWidget {
@@ -8,13 +11,20 @@ class SampleItemDetailsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Item Details'),
-      ),
-      body: const Center(
-        child: Text('More Information Here'),
+    return LifecycleWrapper(
+      onLifecycleEvent: (event) {
+        log(event.toString());
+      },
+      child: Scaffold(
+        appBar: AppBar(
+          title: const Text('Item Details'),
+        ),
+        body: const Center(
+          child: Text('More Information Here'),
+        ),
       ),
     );
+
+   
   }
 }

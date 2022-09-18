@@ -2,9 +2,11 @@ import 'package:buildvarstet/src/controllers/settings_controller.dart';
 import 'package:buildvarstet/src/features/sample/sample_item_details_view.dart';
 import 'package:buildvarstet/src/features/sample/sample_item_list_view.dart';
 import 'package:buildvarstet/src/features/settings/settings_view.dart';
+import 'package:buildvarstet/src/features/themes/brand_theme_data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:lifecycle/lifecycle.dart';
 
 
 
@@ -31,6 +33,7 @@ class MyApp extends StatelessWidget {
       animation: settingsController,
       builder: (BuildContext context, Widget? child,) {
         return MaterialApp(
+          debugShowCheckedModeBanner: false,
           // Providing a restorationScopeId allows the Navigator built by the
           // MaterialApp to restore the navigation stack when a user leaves and
           // returns to the app after it has been killed while running in the
@@ -50,6 +53,8 @@ class MyApp extends StatelessWidget {
             Locale('en', '',), // English, no country code.
           ],
 
+          navigatorObservers: [defaultLifecycleObserver],
+
           // Use AppLocalizations to configure the correct application title
           // depending on the user's locale.
           //
@@ -61,9 +66,11 @@ class MyApp extends StatelessWidget {
           // Define a light and dark color theme. Then, read the user's
           // preferred ThemeMode (light, dark, or system default) from the
           // SettingsController to display the correct theme.
-          theme: ThemeData(),
-          darkTheme: ThemeData.dark(),
+          theme: brandThemeDataLight,
+          darkTheme: brandThemeDataDark,
           themeMode: settingsController.themeMode,
+          highContrastTheme: brandThemeDataLightHighContrast,
+          highContrastDarkTheme: brandThemeDataDarkHighContrast,
 
           // Define a function to handle named routes in order to support
           // Flutter web url navigation and deep linking.

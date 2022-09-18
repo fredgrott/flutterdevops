@@ -7,3 +7,7 @@ final List<String> assetList = <String>[
   "images/3.0x/flutter_logo.png",
   "images/2.0x/flutter_logo.png",
 ];
+
+final List<String> riveList = <String>[
+  "rive/2063-4080-flutter-puzzle-hack-project.riv",
+];
